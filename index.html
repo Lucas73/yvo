@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta a Yvonne</title>
+    <style>
+        /* Estilos generales para la página */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            max-width: 100%;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #666;
+            display: block;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            cursor: pointer;
+            margin-bottom: 20px;
+            box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
+        }
+
+        .content {
+            font-size: 18px;
+            color: #444;
+        }
+
+        /* Estilo para las imágenes */
+        #image-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            display: none;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Colores para las opciones */
+        option {
+            padding: 10px;
+        }
+
+        /* Estilo para los botones y la selección */
+        select:focus {
+            border-color: #1e90ff;
+            outline: none;
+        }
+
+        /* Estilo de la imagen de la opción 1 (contenta) */
+        .contenta {
+            border: 5px solid #00cc66;
+        }
+
+        /* Estilo de la imagen de la opción 2 (impaciente) */
+        .impaciente {
+            border: 5px solid #ffcc00;
+        }
+
+        /* Estilo de la imagen de la opción 3 (enfadada) */
+        .enfadada {
+            border: 5px solid #ff4d4d;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¿A qué hora voy Yvonne?</h1>
+        <div class="content">
+            <label for="hora">Selecciona una opción:</label>
+            <select id="hora" onchange="mostrarImagen()">
+                <option value="">Elige una opción</option>
+                <option value="1">A las 17:00</option>
+                <option value="2">A las 17:00 y te hago esperar un rato largo.</option>
+                <option value="3">Cuando vayas a salir te digo que si me puedo quedar a cenar.</option>
+            </select>
+        </div>
+
+        <div id="image-container">
+            <img id="image-1" src="https://img.freepik.com/foto-gratis/hombre-tiro-completo-divirtiendose-fiesta_23-2149050844.jpg" alt="Imagen Contenta" class="contenta">
+            <img id="image-2" src="https://revistaes.com/wp-content/uploads/2016/03/shutterstock_245759038.jpg" alt="Imagen Impaciente" class="impaciente">
+            <img id="image-3" src="https://st2.depositphotos.com/1001201/9234/i/450/depositphotos_92347480-stock-photo-businessman-with-broken-head-mechanism.jpg" alt="Imagen Enfadada" class="enfadada">
+        </div>
+    </div>
+
+    <script>
+        function mostrarImagen() {
+            // Ocultar todas las imágenes
+            document.getElementById("image-1").style.display = "none";
+            document.getElementById("image-2").style.display = "none";
+            document.getElementById("image-3").style.display = "none";
+            
+            // Obtener el valor seleccionado
+            var seleccion = document.getElementById("hora").value;
+            
+            // Mostrar la imagen correspondiente según la selección
+            if (seleccion == "1") {
+                document.getElementById("image-1").style.display = "block";
+            } else if (seleccion == "2") {
+                document.getElementById("image-2").style.display = "block";
+            } else if (seleccion == "3") {
+                document.getElementById("image-3").style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
